@@ -2,26 +2,36 @@
 
 body {
 	background-image: url(../images/spooky.jpg);
-	background-repeat: all;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	color: #ffffff;
 	align-content: center;
 	font-family: 'Amatic SC', cursive;
+	font-style: italic;
 }
 
 header {
 	margin: 10px;
-	padding: 10px;
+	padding: 20px;
 	
 }
 
 h1 {
 	font-size: xx-large;
-	font-style: italic;
+	font-weight: bold;
 	text-align: center;
+	color: #94e8c4;
+}
+
+hr {
+	color: #14211a;
 }
 
 .previous {
 	text-align: center;
+	padding: 5px;
 }
 
 .main_content {
@@ -30,6 +40,8 @@ h1 {
 	margin: auto;
 	width: 400px;
 	padding: 5px;
+	color: #14211a;
+	margin-bottom: 30px;
 
 }
 
@@ -78,4 +90,14 @@ img {
 .already_guessed {
 	margin: 10px;
 	padding: 10px;
+}
+
+.footer {
+	background: #57816d;
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	color: #14211a;
+	position: relative;
+	bottom: 10px;
 }
