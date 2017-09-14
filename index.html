@@ -4,17 +4,21 @@
 	<title>Hangman Game</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-	<script type="text/javascript" src="assets/javascript/game.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+	
+	
 </head>
-<body>
+<body onkeydown="begin()">
+
+
 	<header>
-		<h1>Hangman</h1>
+		<h1>Hangman - Fall Edition</h1>
 		<hr>
 	</header>
 	<div class="main_content">
 		<div class="box1">
 			<h2 class="previous">Previous Answer</h2>
-			<img src="assets/images/spacefiller.jpg">
+			<img src="assets/images/begin.jpg" width="225px">
 		</div>
 		<div class="box2">
 			<div class="start">
@@ -25,6 +29,8 @@
 			</div>
 			<div class="current_word">	
 				Current Word 
+				<div id="current">
+				</div>
 			</div>
 			<div class="guesses_left">	
 				Number of guesses left
@@ -33,7 +39,16 @@
 				Letters already guessed
 			</div>
 		</div>	
-	</div>		
+	</div>
+	<div class="footer">	
+		<footer>
+			Copyright2017 &copy; Kyla Durbin
+		</footer>	
+	</div>	
 
-</body>
+
+
+	
+
+</body>	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </html>

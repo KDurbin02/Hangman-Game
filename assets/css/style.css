@@ -1,7 +1,7 @@
 /****CSS Style Page*****/
 
 body {
-	background-image: url(../images/spooky.jpg);
+	background-image: url(../images/fall.jpg);
 	height: 100%;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -10,6 +10,7 @@ body {
 	align-content: center;
 	font-family: 'Amatic SC', cursive;
 	font-style: italic;
+	width: 100%;
 }
 
 header {
@@ -19,10 +20,11 @@ header {
 }
 
 h1 {
-	font-size: xx-large;
+	font-size: 60px;
 	font-weight: bold;
 	text-align: center;
-	color: #94e8c4;
+	color: #ffffff;
+	text-shadow: 3px 3px #860513;
 }
 
 hr {
@@ -36,18 +38,21 @@ hr {
 
 .main_content {
 	text-align: center;
-	background: #57816d;
+	background: #860513;
 	margin: auto;
 	width: 400px;
 	padding: 5px;
-	color: #14211a;
+	color: #ffffff;
+	font-size: 30px;
 	margin-bottom: 30px;
+	opacity: .9;
+	border: solid 10px white;
 
 }
 
 .box1{
 	margin: auto;
-	padding: 40px;
+	padding: 20px;
 	display: inline-block;
 	position: relative;
 }
@@ -93,11 +98,12 @@ img {
 }
 
 .footer {
-	background: #57816d;
-	width: 100%;
+	background: #860513;
+	
 	margin: auto;
+	padding: 10px;
 	text-align: center;
-	color: #14211a;
+	color: #ffffff;
 	position: relative;
-	bottom: 10px;
+	bottom: 1px;
 }
