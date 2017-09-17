@@ -7,41 +7,72 @@
 //restart game after number of guesses is zero
 
 
-	var status = false;
-	function begin() {
+var guesses = [];
+var answer;
+var options = ["Pumpkin Spice Latte", "Basic White Girl", "Hoodies", "Boots", "Pumpkins", "Cant Even"];
+var hidden = [];
+var currentWord;
+var currentWordArr;
 
-		var event = window.event;
-		var n = String.fromCharCode(event.keyCode);
-		
-		if (!status) {
+function begin() {
 
-		var options = ["Pumpkin Spice Latte", "Basic White Girl", "Hoodies", "Boots", "Pumpkins"];
+    document.addEventListener("keydown", function(event) {
 
-		var currentword = options[Math.floor((Math.random() * 5))];
-	
-		var current = document.createElement("<div>");
-		var textnode = document.createTextNode("_ ");
+        guesses.push(event.key.toLowerCase())
+        console.log(event);
 
-		for(var i=0; i < currentword.length; i++){
-			//$("#current_word").append("_ ");
-			current.appendChild(textnode);
+    })
 
-		}
-		status = true;
-		//document.getElementById("current_word").appendChild(current);
+    currentWord = options[Math.floor((Math.random() * 6))];
+    currentWordArr = currentWord.split("");
+    console.log(currentWord)
 
-		} else {
-			// if (currentword.includes(n)) {
-
-			// }
-	
-
-		};
+    //var current = document.createElement("div");
+    //var textnode = document.createTextNode("_ ");
 
 
-	};
+    for (var i = 0; i < currentWordArr.length; i++) {
+        if (currentWordArr[i] === ' ') {
+            hidden.push(" ");
+        } else {
+            hidden.push("_");
+        } 
+        
 
-window.onload = function () {
+    };
+    var hiddenHTML = document.getElementById("current_word");
+    console.log(hidden);
+    // console.log(hidden.join(""));
+    hiddenHTML.innerHTML = hidden.join("");
+
+    guesses.onkeydown = function(){
+    if (guesses === currentWordArr) {
+    	string.replace("_", guesses);
+    	console.log(guesses)
+    }	
+
+
+    };
+
+
+
+
+
+
+
+
+
+};
+begin();
+
+
+
+
+
+
+
+
+/*window.onload = function () {
 
 
 
@@ -75,11 +106,4 @@ window.onload = function () {
 
  
 }
-
-
-
-
- 
-  
-
-}
+*/
