@@ -11,6 +11,7 @@
 
 var guesses = [];
 var guessesLeft = 7;
+var wins = 1;
 var userGuess = "";
 var answer;
 var optionNumber;
@@ -36,11 +37,11 @@ var options = [{
     },
     {
         name: "Cant Even",
-        picture: ""
+        picture: "assets/images/canteven.jpg"
     },
     {
         name: "Flannel",
-        picture: ""
+        picture: "assets/images/flannel.jpg"
     }
 ];
 var hidden = [];
@@ -52,7 +53,9 @@ function begin() {
     optionNumber = Math.floor((Math.random() * 7));
     currentWord = options[optionNumber]["name"];
     currentWordArr = currentWord.split("");
-    console.log(currentWord)
+    currentWordArr = currentWord.toLowerCase();
+
+    console.log(currentWord);
 
     //creates play spaces for word
     for (var i = 0; i < currentWordArr.length; i++) {
@@ -70,20 +73,18 @@ function begin() {
 window.addEventListener('keydown', function(event) {
     console.log(event);
     userGuess = event['key'];
-    // event.push(userGuess.toLowerCase());
     checkLetters();
 
 
 });
 
 function checkLetters() {
-    
+
     var current = document.getElementById("current_word").innerHTML.split('');
 
     if (currentWordArr.includes(userGuess) && guesses.indexOf(userGuess) < 0) {
-        console.log("letterfound");
         guesses.push(userGuess);
-
+        //if letter guessed is correct
 
         for (var i = 0; i < currentWordArr.length; i++) {
             if (currentWordArr[i] === userGuess) {
@@ -96,35 +97,85 @@ function checkLetters() {
         var alreadyGuessed = document.getElementById("already_guessed");
         alreadyGuessed.innerHTML = guesses.join(" ");
     } else {
+        //if letter guessed is wrong
         guesses.push(userGuess);
         guessesLeft--;
         var alreadyGuessed = document.getElementById("already_guessed");
         alreadyGuessed.innerHTML = guesses.join(" ");
         var left = document.getElementById("guesses_left");
         left.innerHTML = guessesLeft;
-        console.log(guessesLeft);
+
 
     }
-    if (current.indexOf("_") < 0){
-     document.getElementById("picture").src = options[optionNumber]["picture"];
+    if (current.indexOf("_") < 0) {
+        //if player wins
+        alert("Yas Queen!")
+        document.getElementById("picture").src = options[optionNumber]["picture"];
+        //document.getElementById("previous") = options[optionNumber]["name"];
+        var win = document.getElementById("wins");
+        win.innerHTML = wins;
+        wins++; //wins counter goes up
+        reset(); //reset game
+        begin(); //begin again
+
+    };
+    if (guessesLeft === 0) {
+        //if player losses
+        alert("I just can't")
+        document.getElementById("picture").src = options[optionNumber]["picture"];
+       // document.getElementById("previous") = options[optionNumber]["name"];
+       // var snd = new Audio("file.wav"); // buffers automatically when created
+       // snd.play();
+        reset(); //reset game
+        begin(); //begin again
 
     }
-
 };
 
 
-begin();
 
 
 
+function reset() {
+    guesses = [];
+    guessesLeft = 7;
+    userGuess = "";
+    answer;
+    optionNumber;
+    options = [{
+            name: "Pumpkin Spice Latte",
+            picture: "assets/images/psl.jpg"
+        },
+        {
+            name: "Basic",
+            picture: "assets/images/basic.jpg"
+        },
+        {
+            name: "Hoodies",
+            picture: "assets/images/hoodies.jpg"
+        },
+        {
+            name: "Boots",
+            picture: "assets/images/boots.jpg"
+        },
+        {
+            name: "Pumpkins",
+            picture: "assets/images/pumpkins.jpg"
+        },
+        {
+            name: "Cant Even",
+            picture: "assets/images/canteven.jpg"
+        },
+        {
+            name: "Flannel",
+            picture: "assets/images/flannel.jpg"
+        }
+    ];
+    hidden = [];
+    currentWord;
+    currentWordArr;
 
-
-
-
-
-/*window.onload = function () {
-
-
- 
 }
-*/
+
+
+begin();
