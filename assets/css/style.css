@@ -52,18 +52,18 @@ hr {
 
 .box1{
 	margin: auto;
-	padding: 20px;
+	padding: 10px;
 	display: inline-block;
 	position: relative;
 }
 
 img {
-	margin-top: 20px;
+	margin-top: 10px;
 }
 
 .box2{
 	margin: auto;
-	padding: 40px;
+	padding: 20px;
 	text-align: center;
 	display: inline-block;
 	width: 200px;

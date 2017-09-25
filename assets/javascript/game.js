@@ -50,10 +50,10 @@ var currentWordArr;
 
 function begin() {
     //computer picks word to play
-    optionNumber = Math.floor((Math.random() * 7));
+    optionNumber = Math.floor((Math.random() * 7)); //chosing word
     currentWord = options[optionNumber]["name"];
-    currentWordArr = currentWord.split("");
-    currentWordArr = currentWord.toLowerCase();
+    currentWordArr = currentWord.split(""); //splitting sting into array
+    currentWordArr = currentWord.toLowerCase(); //turning everthing to lower case
 
     console.log(currentWord);
 
@@ -83,8 +83,9 @@ function checkLetters() {
     var current = document.getElementById("current_word").innerHTML.split('');
 
     if (currentWordArr.includes(userGuess) && guesses.indexOf(userGuess) < 0) {
+        console.log("letterfound");
         guesses.push(userGuess);
-        //if letter guessed is correct
+
 
         for (var i = 0; i < currentWordArr.length; i++) {
             if (currentWordArr[i] === userGuess) {
@@ -97,37 +98,33 @@ function checkLetters() {
         var alreadyGuessed = document.getElementById("already_guessed");
         alreadyGuessed.innerHTML = guesses.join(" ");
     } else {
-        //if letter guessed is wrong
         guesses.push(userGuess);
         guessesLeft--;
         var alreadyGuessed = document.getElementById("already_guessed");
         alreadyGuessed.innerHTML = guesses.join(" ");
         var left = document.getElementById("guesses_left");
         left.innerHTML = guessesLeft;
-
+        console.log(guessesLeft);
 
     }
     if (current.indexOf("_") < 0) {
-        //if player wins
         alert("Yas Queen!")
         document.getElementById("picture").src = options[optionNumber]["picture"];
-        //document.getElementById("previous") = options[optionNumber]["name"];
         var win = document.getElementById("wins");
         win.innerHTML = wins;
-        wins++; //wins counter goes up
-        reset(); //reset game
-        begin(); //begin again
+        wins++;
+        document.getElementById("pre").innerHTML = currentWordArr;
+        reset();
+        begin();
 
     };
     if (guessesLeft === 0) {
-        //if player losses
+
         alert("I just can't")
         document.getElementById("picture").src = options[optionNumber]["picture"];
-       // document.getElementById("previous") = options[optionNumber]["name"];
-       // var snd = new Audio("file.wav"); // buffers automatically when created
-       // snd.play();
-        reset(); //reset game
-        begin(); //begin again
+        document.getElementById("pre").innerHTML = currentWordArr;
+        reset();
+        begin();
 
     }
 };
@@ -179,3 +176,17 @@ function reset() {
 
 
 begin();
+
+
+
+
+
+
+
+
+/*window.onload = function () {
+
+
+ 
+}
+*/
